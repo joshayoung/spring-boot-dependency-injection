@@ -1,5 +1,6 @@
 package com.joshayoung.springbootdependencyinjection;
 
+import com.joshayoung.springbootdependencyinjection.controllers.ConstructorInjectedController;
 import com.joshayoung.springbootdependencyinjection.controllers.MyController;
 import com.joshayoung.springbootdependencyinjection.controllers.PropertyInjectedController;
 import com.joshayoung.springbootdependencyinjection.controllers.SetterInjectedController;
@@ -29,6 +30,12 @@ public class SpringBootDependencyInjectionApplication {
         SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
 
         System.out.println(setterInjectedController.getGreeting());
+
+        System.out.println("------- Constructor");
+
+        ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+
+        System.out.println(constructorInjectedController.getGreeting());
     }
 
 }
