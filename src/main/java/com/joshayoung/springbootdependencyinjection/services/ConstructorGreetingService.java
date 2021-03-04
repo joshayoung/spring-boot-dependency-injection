@@ -3,9 +3,9 @@ package com.joshayoung.springbootdependencyinjection.services;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GreetingServiceImpl implements GreetingService {
+public class ConstructorGreetingService implements GreetingService {
     @Override
     public String sayGreeting() {
-        return "Hello Interface";
+        return "Hello World - Constructor";
     }
 }
