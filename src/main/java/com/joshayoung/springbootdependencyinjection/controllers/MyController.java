@@ -1,12 +1,18 @@
 package com.joshayoung.springbootdependencyinjection.controllers;
 
+import com.joshayoung.springbootdependencyinjection.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
-    public String sayHello() {
-        System.out.println("printed from controller");
 
-        return "returned from controller";
+    private final GreetingService greetingService;
+
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+    public String sayHello() {
+        return greetingService.sayGreeting();
     }
 }
