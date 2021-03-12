@@ -1,6 +1,6 @@
 package com.joshayoung.springbootdependencyinjection.controllers;
 
-import com.joshayoung.springbootdependencyinjection.services.PetService;
+import co.springframework.pets.PetService;
 import org.springframework.stereotype.Controller;
 
 @Controller

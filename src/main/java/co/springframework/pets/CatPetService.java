@@ -1,4 +1,4 @@
-package com.joshayoung.springbootdependencyinjection.services;
+package co.springframework.pets;
 
 import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
