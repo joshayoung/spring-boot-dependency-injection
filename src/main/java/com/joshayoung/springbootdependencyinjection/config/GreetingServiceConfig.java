@@ -1,5 +1,7 @@
 package com.joshayoung.springbootdependencyinjection.config;
 
+import co.springframework.pets.PetService;
+import co.springframework.pets.PetServiceFactory;
 import com.joshayoung.springbootdependencyinjection.repositories.EnglishGreetingRepository;
 import com.joshayoung.springbootdependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 import com.joshayoung.springbootdependencyinjection.services.*;
@@ -7,10 +9,26 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
 
 @Configuration
 public class GreetingServiceConfig {
+
+    @Profile({"dog", "default"})
+    @Bean
+    PetService dogPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("dog");
+    }
+
+    @Profile("cat")
+    @Bean
+    PetService catPetService(PetServiceFactory petServiceFactory) {
+        return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    PetServiceFactory petServiceFactory() {
+        return new PetServiceFactory();
+    }
 
     @Profile({"ES", "default"})
     // By default Spring will use the method name unless you override it:
