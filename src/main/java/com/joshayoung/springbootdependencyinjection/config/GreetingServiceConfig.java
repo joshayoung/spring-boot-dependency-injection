@@ -5,11 +5,9 @@ import co.springframework.pets.PetServiceFactory;
 import com.joshayoung.springbootdependencyinjection.repositories.EnglishGreetingRepository;
 import com.joshayoung.springbootdependencyinjection.repositories.EnglishGreetingRepositoryImpl;
 import com.joshayoung.springbootdependencyinjection.services.*;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.context.annotation.*;
 
+@ImportResource("classpath:springbootdependencyinjection-config.xml")
 @Configuration
 public class GreetingServiceConfig {
 
@@ -52,11 +50,6 @@ public class GreetingServiceConfig {
     @Bean
     PrimaryGreetingService primaryGreetingService() {
         return new PrimaryGreetingService();
-    }
-
-    @Bean
-    ConstructorGreetingService constructorGreetingService() {
-        return new ConstructorGreetingService();
     }
 
     // It uses the name of the method as the name of the Bean:
